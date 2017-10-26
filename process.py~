@@ -1,0 +1,4 @@
+from sys import os
+
+for dirs in os.walk('/gbo/AGBT17A_477'):
+    print dirs

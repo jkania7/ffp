@@ -11,7 +11,7 @@ do
 	IFS='/' read -ra ADDR <<< "$files"
 	echo "$ADDR"
 	for i in "${ADDR[@]}"; do
-	    if [[ "$i" == *"_1929+16_"*".fits" ]]zzc; then
+	    if [[ "$i" == *"_1929+16_"*".fits" ]]; then
 		containsfits="true"
 	    fi
 	    if [[ "$i" == *"_1929+16.pfd" ]]; then
