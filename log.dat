@@ -1,9 +1,0 @@
-show_pfd guppi_58004_1929+16_0002_0001_PSR_1929+16.pfd -killparts 24 -killsubs 101,111,112
-show_pfd guppi_58006_1929+16_0002_0001_PSR_1929+16.pfd -killsubs 27 -killparts 32,33
-show_pfd guppi_58008_1929+16_0002_0001_PSR_1929+16.pfd -killparts 26,48 -killsubs 27 #also try -kp 47, -ks 21
-show_pfd guppi_58017_1929+16_0001_0001_PSR_1929+16.pfd -killsubs 111,112 -killparts 9
-show_pfd guppi_58032_1929+16_0001_0001_PSR_1929+16.pfd -killparts 16,17,24,33,34,56,57 -killsubs 2,3,4,23,27,28 #not detected
-show_pfd guppi_58032_1929+16_0001_0001_PSR_1929+16.pfd -killparts 0,7,16,17,24,25,27,33,34,56,57 -killsubs 2,3,4,23,24,25,26,27,28 #still not showing up
-show_pfd guppi_58014_1929+16_0001_0001_PSR_1929+16.pfd -killsubs 9,10,80,111,112 -killparts 19,35 #no detection
-show_pfd guppi_58010_1929+16_0001_0001_PSR_1929+16.pfd -killsubs 27,28 -killparts 29
-show_pfd guppi_58022_1929+16_0001_0001_PSR_1929+16.pfd -killsubs 34 -killparts 7,11,45,46
