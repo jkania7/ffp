@@ -22,12 +22,13 @@ for pulsar in pulsars:
             for filename in filenames:
                 if fnmatch.fnmatch(filename,'*{0}_PSR_{1}.pfd'.format(fitsNUM,pulsar)):
                     containsPFD = True
-
+                    if  any(os.path.isfile(os.path.join("./{0}/".format(pulsar),i)) for i in os.listdir("./{0}/".format(pulsar))):
+                        print("You need a {0}/".format(pulsar))
             if containsFit and not containsPFD:
                 print('You need a PFD {0}_PSR_{1}.pfd file in {1}'.format(fitsNum,pulsar,dirname))
                 os.system("predfold -timing ../{0}.par {1}/{2}".format(pulsar,dirname,fitsNAME))#tries to make the pfd file, par one up
             else:
-                goAgain = False
+                goAgain = False #ends the loop after all fits files have been made
     """
     for subdirnames in dirnames:
         print(os.path.join(dirname, subdirnames))
