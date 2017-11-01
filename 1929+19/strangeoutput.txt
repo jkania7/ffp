@@ -1,0 +1,43 @@
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polyco4UOHqN' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycoXbNnrP' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polyco0k8X6U' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycougxXxZ' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycopdv6f4' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycoA7Qj65' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycoj7sOCa' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycowJ0A9P' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycop6dmBU' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycoeNikmV' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
+
+cp: cannot create regular file `../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos': No such file or directory
+
+Error:  Cannot copy polyco.dat in '/tmp/polycoRJpXY1' to '../20170918/guppi_58014_1929+19_0002_0001_PSR_1929+19.pfd.polycos' make_polycos()
