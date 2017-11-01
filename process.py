@@ -1,34 +1,40 @@
 """Created by jwkania to process five faint pulsars.C26OCT2017:U26OCT2017"""
 import os,fnmatch
 #loopnumber = 0
-verbose=True #prints out tests
-pulsars=["1929+16"] #list of pulsars you want to process.
+verbose = True #prints out tests
+pulsars = ["1929+16","1929+19"] #list of pulsars you want to process.
 
 for pulsar in pulsars:
-    for dirname,dirnames, filenames  in os.walk('..'):
+    for dirname, dirnames, filenames  in os.walk('..'):
         if '.git' in dirnames:#removes git dir
             dirnames.remove('.git')
         if verbose: print("dirname = {0}".format( dirname))
-        goAgain = True
-        while goAgain:
-            containsFit = False; contiansPFD = False; fitsNUM=[];fitsNAME=[];
-            for fitsNAME in filenames:
-                if verbose: print("fitsNAME= {0}".format(fitsNAME))
-                if fnmatch.fnmatch(fitsNAME,'*{0}*.fits'.format(pulsar)):
+        goAgain = 0;
+        while goAgain<10:
+            containsFIT = False; fitsNUMs=[];fitsNAME=[];
+            for fileNAME in filenames:
+                if verbose: print("fileNAME= {0}".format(fileNAME))
+                if fnmatch.fnmatch(fileNAME,'*{0}*.fits'.format(pulsar)):
+                    if verbose: print("Examining: {0}".format(fileNAME))
                     containsFIT = True
-                    fitsNUM = (fitsNAME.split('.')[0]).split('_')[-1]#parses .fits file to get number
-                    if verbose: print("fitsNUM={0}".format(fitsNUM))
-
+                    fitsNUMs.append("_".join([(fileNAME.split('.')[0]).split('_')[-2], (fileNAME.split('.')[0]).split('_')[-1]]))#parses .fits file to get number
+                    if verbose: print("fitsNUMs={0}".format(fitsNUMs))
+ 
             for filename in filenames:
-                if fnmatch.fnmatch(filename,'*{0}_PSR_{1}.pfd'.format(fitsNUM,pulsar)):
-                    containsPFD = True
-                    if  any(os.path.isfile(os.path.join("./{0}/".format(pulsar),i)) for i in os.listdir("./{0}/".format(pulsar))):
-                        print("You need a {0}/".format(pulsar))
-            if containsFit and not containsPFD:
-                print('You need a PFD {0}_PSR_{1}.pfd file in {1}'.format(fitsNum,pulsar,dirname))
-                os.system("predfold -timing ../{0}.par {1}/{2}".format(pulsar,dirname,fitsNAME))#tries to make the pfd file, par one up
-            else:
-                goAgain = False #ends the loop after all fits files have been made
+                for fitsNUM in fitsNUMs:
+                    containsPFD = False
+                    if fnmatch.fnmatch(filename,'*{0}_PSR_{1}.pfd'.format(fitsNUM,pulsar)):
+                        containsPFD = True
+                        print("os.path.isfile(format(pulsar,filename))= {0}".format(os.path.isfile("./{0}/{1}".format(pulsar,filename))))
+                        if not os.path.isfile("./{0}/{1}".format(pulsar,filename)):
+                            print("You need {0} in {1}".format(filename,pulsar))
+                            os.system("cp {0}/{1} ./{2}".format(dirname,filename, pulsar))
+                if (containsFIT) and (not containsPFD):
+                    print('You need a PFD {0}_PSR_{1}.pfd file in {2}'.format(fitsNUM,pulsar,dirname))
+                    os.system("echo prepfold -timing ../{0}.par {1}/{2}".format(pulsar,dirname,filename))#tries to make the pfd file, par one up
+                    goAgain = goAgain + 1#kills the loop after 10 tries 
+                else:
+                    goAgain = 10 #ends the loop after all fits files have been made
     """
     for subdirnames in dirnames:
         print(os.path.join(dirname, subdirnames))
