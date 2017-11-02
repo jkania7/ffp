@@ -9,3 +9,4 @@ prepfold -timing /gbo/AGBT17A_477/1929+19.par /gbo/AGBT17A_477/guppi_58032_1929+
 prepfold -timing /gbo/AGBT17A_477/1929+19.par /gbo/AGBT17A_477/guppi_58032_1929+19_0002_0001.fits -noxwin
 prepfold -timing /gbo/AGBT17A_477/1929+19.par /gbo/AGBT17A_477/guppi_58032_1929+19_0002_0001.fits -noxwin
 prepfold -timing /gbo/AGBT17A_477/1929+19.par /gbo/AGBT17A_477/guppi_58032_1929+19_0002_0001.fits -noxwin
+prepfold -timing /gbo/AGBT17A_477/1929+19.par /gbo/AGBT17A_477/guppi_58032_1929+19_0002_0001.fits -noxwin
