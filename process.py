@@ -1,7 +1,7 @@
-"""jwk C2NOV2017, invoke with pyhton process.py"""
+"""jwk C2NOV2017, invoke with python process.py"""
 import os, fnmatch, glob
 from subprocess import call
-pulsarS=['1929+19','1929+16']#list of pulsars to process
+pulsarS=['1929+16','1929+19']#list of pulsars to process
 vverbose = False; verbose= True
 for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is path to dirctory
     #dirNames is all subdirs in a dir filesNames is all the files
@@ -32,3 +32,21 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
                 if (len(pfd) == 0): print("Didn't create pfd, killing script"); exit()
                 call(["echo","rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)]) 
                 call(["rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)])  
+
+for pulsar in pulsarS:
+    toDO = open("/gbo/AGBT17A_477/share/{0}/toDO.txt".format(pulsar),'w')
+    toDO.write("THIS FILE IS REWRITTEN EVERYTIME process.py IS RUN\n")
+    toDO.write("This is a list of pfds that need to be flagged and 'echo show_pfd>>log.dat'ed \n")
+    #Is compares the lsit of pfd files to files that have been flagged and added to log.dat
+    for file in glob.glob('/gbo/AGBT17A_477/share/{0}/*.pfd'.format(pulsar)):
+        file = file.split('/')[-1]#Splits off dir info from glob
+        foundINlog = False
+        for log in open("/gbo/AGBT17A_477/share/{0}/log.dat".format(pulsar),'r'):
+            if vverbose: print("file = {0}".format(file))
+            if vverbose: print("log = {0}".format(log))
+            if fnmatch.fnmatch(log, "*{0}*".format(file)):
+                if verbose: print("Found {0} as pfd and in log.dat, its flagged".format(file))
+                foundINlog = True
+                
+        if (not foundINlog):
+            toDO.write("{0}\n".format(file))
