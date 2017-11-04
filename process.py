@@ -59,7 +59,7 @@ for pulsar in pulsarS:
                                 p = parsed[q+1]
                             elif (parsed[q] == "-killsubs"):
                                 k = parsed[q+1]
-                            elif parsed[q] == "killparts":
+                            elif parsed[q] == "-killparts":
                                 i = parsed[q+1]
                         with open("/gbo/AGBT17A_477/share/{0}/toaMAKER".format(pulsar),'a+') as toaLIST:
 
@@ -67,17 +67,17 @@ for pulsar in pulsarS:
                                 if verbose: print("I've found {0} in ../{1}/toaMAKER".format(p, pulsar))
                             else:
                                 if (len(i)>0 and len(k)>0):
-                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0} -i {1} {2}\n".format(k,i,p) )
-                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0} -i {1} {2}\n".format(k,i,p) )
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0}\t-i {1}\t{2}\n".format(k,i,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0}\t\t-i {1}\t{2}\n".format(k,i,p) )
                                 elif (len(i)==0 and len(k)>0):
-                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0} {1}\n".format(k,p) )
-                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0} {1}\n".format(k,p) )
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0}\t\t\t{1}\n".format(k,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0}\t\t\t{1}\n".format(k,p) )
                                 elif (len(i)>0 and len(k)==0):
-                                    if verbose: print("get_TOAs.py -n -g 0.1 -i {0} {1}\n".format(i,p) )
-                                    toaLIST.write("get_TOAs.py -n -g 0.1 -i {0} {1}\n".format(i,p) )
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -i {0}\t\t\t{1}\n".format(i,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -i {0}\t\t\t{1}\n".format(i,p) )
                                 elif (len(i)==0 and len(k)==0):
-                                    if verbose: print("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
-                                    toaLIST.write("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
+                                    if verbose: print("get_TOAs.py -n -g 0.1\t\t\t{0}\n".format(p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1\t\t\t{0}\n".format(p) )
                                 else:
                                     print("Someting is wrong with the log.dat {0}".format(p))
                 if (not foundINlog):
