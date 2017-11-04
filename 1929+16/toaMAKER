@@ -1,5 +1,6 @@
 get_TOAs.py -n -g 0.1 -k 27,28 guppi_58010_1929+16_0001_0001_PSR_1929+16.pfd
 get_TOAs.py -n -g 0.1 -k 27 guppi_58006_1929+16_0002_0001_PSR_1929+16.pfd
+get_TOAs.py -n -g 0.1 -k 111,112 guppi_58005_1929+16_0002_0001_PSR_1929+16.pfd
 get_TOAs.py -n -g 0.1 -k 2,3,4,23,27,28 guppi_58032_1929+16_0001_0001_PSR_1929+16.pfd
 get_TOAs.py -n -g 0.1 -k 111,112 guppi_58017_1929+16_0001_0001_PSR_1929+16.pfd
 get_TOAs.py -n -g 0.1 -k 9,10,80,111,112 guppi_58014_1929+16_0001_0001_PSR_1929+16.pfd

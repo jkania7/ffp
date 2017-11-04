@@ -74,7 +74,7 @@ for pulsar in pulsarS:
                                     toaLIST.write("get_TOAs.py -n -g 0.1 -k {0} {1}\n".format(k,p) )
                                 elif (len(i)>0 and len(k)==0):
                                     if verbose: print("get_TOAs.py -n -g 0.1 -i {0} {1}\n".format(i,p) )
-                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k -i {0} {1}\n".format(i,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -i {0} {1}\n".format(i,p) )
                                 elif (len(i)==0 and len(k)==0):
                                     if verbose: print("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
                                     toaLIST.write("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
