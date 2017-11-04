@@ -1,5 +1,5 @@
 """jwk C2NOV2017, invoke with python process.py"""
-import os, fnmatch, glob
+import os, fnmatch, glob, shlex
 from subprocess import call
 pulsarS=['1929+16','1929+19']#list of pulsars to process
 vverbose = False; verbose= True
@@ -34,19 +34,51 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
                 call(["rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)])  
 
 for pulsar in pulsarS:
-    toDO = open("/gbo/AGBT17A_477/share/{0}/toDO.txt".format(pulsar),'w')
-    toDO.write("THIS FILE IS REWRITTEN EVERYTIME process.py IS RUN\n")
-    toDO.write("This is a list of pfds that need to be flagged and 'echo show_pfd>>log.dat'ed \n")
-    #Is compares the lsit of pfd files to files that have been flagged and added to log.dat
-    for file in glob.glob('/gbo/AGBT17A_477/share/{0}/*.pfd'.format(pulsar)):
-        file = file.split('/')[-1]#Splits off dir info from glob
-        foundINlog = False
-        for log in open("/gbo/AGBT17A_477/share/{0}/log.dat".format(pulsar),'r'):
-            if vverbose: print("file = {0}".format(file))
-            if vverbose: print("log = {0}".format(log))
-            if fnmatch.fnmatch(log, "*{0}*".format(file)):
-                if verbose: print("Found {0} as pfd and in log.dat, its flagged".format(file))
-                foundINlog = True
-                
-        if (not foundINlog):
-            toDO.write("{0}\n".format(file))
+    with open("/gbo/AGBT17A_477/share/{0}/toDO.txt".format(pulsar),'w') as toDO:
+        toDO.write("THIS FILE IS REWRITTEN EVERYTIME process.py IS RUN\n")
+        toDO.write("This is a list of pfds that need to be flagged and 'echo show_pfd>>log.dat'ed \n")
+        #Is compares the lsit of pfd files to files that have been flagged and added to log.dat
+        for file in glob.glob('/gbo/AGBT17A_477/share/{0}/*.pfd'.format(pulsar)):
+            file = file.split('/')[-1]#Splits off dir info from glob
+            foundINlog = False
+            with open("/gbo/AGBT17A_477/share/{0}/log.dat".format(pulsar),'r') as logS:
+                for log in logS:
+                    if vverbose: print("file = {0}".format(file))
+                    if vverbose: print("log = {0}".format(log))
+                    if fnmatch.fnmatch(log, "*{0}*".format(file)):
+                        if verbose: print("Found {0} as pfd and in log.dat, its flagged".format(file))
+                        foundINlog = True
+                        print("log = {0}".format(log))
+                        parsed =  shlex.split(log)
+                        p=[];i=[];k=[];
+                        if vverbose: print("parsed={0}".format(parsed))
+                        if vverbose: print("len(parsed)={0}".format(len(parsed)))
+                        if vverbose: print("range(len(parsed))={0}".format(range(len(parsed))))
+                        for q in range(len(parsed)):
+                            if (parsed[int(q)] == "show_pfd"):
+                                p = parsed[q+1]
+                            elif (parsed[q] == "-killsubs"):
+                                k = parsed[q+1]
+                            elif parsed[q] == "killparts":
+                                i = parsed[q+1]
+                        with open("/gbo/AGBT17A_477/share/{0}/toaMAKER".format(pulsar),'a+') as toaLIST:
+
+                            if any(fnmatch.fnmatch(toa, "*{0}*".format(p)) for toa in toaLIST):
+                                if verbose: print("I've found {0} in ../{1}/toaMAKER".format(p, pulsar))
+                            else:
+                                if (len(i)>0 and len(k)>0):
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0} -i {1} {2}\n".format(k,i,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0} -i {1} {2}\n".format(k,i,p) )
+                                elif (len(i)==0 and len(k)>0):
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -k {0} {1}\n".format(k,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k {0} {1}\n".format(k,p) )
+                                elif (len(i)>0 and len(k)==0):
+                                    if verbose: print("get_TOAs.py -n -g 0.1 -i {0} {1}\n".format(i,p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 -k -i {0} {1}\n".format(i,p) )
+                                elif (len(i)==0 and len(k)==0):
+                                    if verbose: print("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
+                                    toaLIST.write("get_TOAs.py -n -g 0.1 {0}\n".format(p) )
+                                else:
+                                    print("Someting is wrong with the log.dat {0}".format(p))
+                if (not foundINlog):
+                    toDO.write("{0}\n".format(file))

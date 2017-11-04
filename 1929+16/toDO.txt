@@ -1,0 +1,3 @@
+THIS FILE IS REWRITTEN EVERYTIME process.py IS RUN
+This is a list of pfds that need to be flagged and 'echo show_pfd>>log.dat'ed 
+guppi_58005_1929+16_0002_0001_PSR_1929+16.pfd
