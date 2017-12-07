@@ -1,7 +1,7 @@
 """jwk C2NOV2017, invoke with python process.py"""
 import os, fnmatch, glob, shlex
 from subprocess import call
-pulsarS=['1929+16','1929+19']#list of pulsars to process
+pulsarS=['1929+16','1929+19','1930+17']#list of pulsars to process
 vverbose = False; verbose= True
 for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is path to dirctory
     #dirNames is all subdirs in a dir filesNames is all the files
@@ -26,8 +26,8 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
                 elif ( len(pfd) == 0 ):#doesn't find pfd
                     print("Creating pfd for {0}".format(file))
                     f = open("/gbo/AGBT17A_477/share/outputs/{0}.out".format(file),'a')#A file outputs of the runs
-                    call(["echo", "prepfold","-timing","/gbo/AGBT17A_477/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"])
-                    call([ "prepfold","-timing","/gbo/AGBT17A_477/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"],stdout=f)
+                    call(["echo", "prepfold","-timing","/gbo/AGBT17A_477/share/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"])
+                    call([ "prepfold","-timing","/gbo/AGBT17A_477/share/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"],stdout=f)
                 pfd =  glob.glob('{0}/*{1}.pfd'.format(dirPATH,pulsar, fitsNUM))
                 if (len(pfd) == 0): print("Didn't create pfd, killing script"); exit()
                 call(["echo","rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)]) 

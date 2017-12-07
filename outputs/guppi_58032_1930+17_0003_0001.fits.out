@@ -1,0 +1,78 @@
+
+
+        Pulsar Raw-Data Folding Search Routine
+ Used for DM, Period, and P-dot tweaking of PSR candidates.
+                 by Scott M. Ransom
+
+Assuming the data are PSRFITS format...
+Reading PSRFITS data from 1 file:
+  '/gbo/AGBT17A_477/20171006/guppi_58032_1930+17_0003_0001.fits'
+
+    Number of files = 1
+       Num of polns = 2 (summed)
+  Center freq (MHz) = 820
+    Num of channels = 2048
+    Sample time (s) = 8.192e-05     
+     Spectra/subint = 4096
+   Total points (N) = 4632576
+     Total time (s) = 379.50062592  
+     Clipping sigma = 6.000
+   Invert the band? = True
+          Byteswap? = False
+     Remove zeroDM? = False
+     Apply scaling? = False
+     Apply offsets? = False
+     Apply weights? = True
+
+File  Start Spec   Samples     Padding        Start MJD
+----  ----------  ----------  ----------  --------------------
+1              0     4632576           0  58032.12065972222222
+
+Folding a PSR_1930+17 candidate.
+
+Output data file is '/gbo/AGBT17A_477/20171006/guppi_58032_1930+17_0003_0001_PSR_1930+17.pfd'.
+Output plot file is '/gbo/AGBT17A_477/20171006/guppi_58032_1930+17_0003_0001_PSR_1930+17.pfd.ps'.
+Best profile is in  '/gbo/AGBT17A_477/20171006/guppi_58032_1930+17_0003_0001_PSR_1930+17.pfd.bestprof'.
+Generating polycos for PSR 1930+17.
+Polycos used are in '/gbo/AGBT17A_477/20171006/guppi_58032_1930+17_0003_0001_PSR_1930+17.pfd.polycos'.
+
+Read 24 set(s) of polycos for PSR 1930+17 at 58032.120659722219 (DM = 201)
+
+Pulsar                       =  1930+17
+Folding (topo) epoch  (MJD)  =  58032.120659722219
+Data pt duration (dt)   (s)  =  8.192e-05
+Total number of data points  =  4423680
+Number of profile bins       =  64
+Folding period          (s)  =  1.61011385991067
+Folding frequency      (hz)  =  0.621074089789
+
+WARNING:  The pulse period is close to the duration of a folding
+  sub-interval.  This may cause artifacts in the plot and/or excessive
+  loss of data during the fold.  I recommend re-running with -npart set
+  to a significantly smaller value than the current value of 60.
+True starting fraction       =  0
+Will search 129 DMs from 0.000 to 405.570 (ddm = 3.1440)
+
+Starting work on 'guppi_58032_1930+17_0003_0001.fits'...
+
+  Folded 0 points of 4423680  Folded 73728 points of 4423680  Folded 147456 points of 4423680  Folded 221184 points of 4423680  Folded 294912 points of 4423680  Folded 368640 points of 4423680  Folded 442368 points of 4423680  Folded 516096 points of 4423680  Folded 589824 points of 4423680  Folded 663552 points of 4423680  Folded 737280 points of 4423680  Folded 811008 points of 4423680  Folded 884736 points of 4423680  Folded 958464 points of 4423680  Folded 1032192 points of 4423680  Folded 1105920 points of 4423680  Folded 1179648 points of 4423680  Folded 1253376 points of 4423680  Folded 1327104 points of 4423680  Folded 1400832 points of 4423680  Folded 1474560 points of 4423680  Folded 1548288 points of 4423680  Folded 1622016 points of 4423680  Folded 1695744 points of 4423680  Folded 1769472 points of 4423680  Folded 1843200 points of 4423680  Folded 1916928 points of 4423680  Folded 1990656 points of 4423680  Folded 2064384 points of 4423680  Folded 2138112 points of 4423680  Folded 2211840 points of 4423680  Folded 2285568 points of 4423680  Folded 2359296 points of 4423680  Folded 2433024 points of 4423680  Folded 2506752 points of 4423680  Folded 2580480 points of 4423680  Folded 2654208 points of 4423680  Folded 2727936 points of 4423680  Folded 2801664 points of 4423680  Folded 2875392 points of 4423680  Folded 2949120 points of 4423680  Folded 3022848 points of 4423680  Folded 3096576 points of 4423680  Folded 3170304 points of 4423680  Folded 3244032 points of 4423680  Folded 3317760 points of 4423680  Folded 3391488 points of 4423680  Folded 3465216 points of 4423680  Folded 3538944 points of 4423680  Folded 3612672 points of 4423680  Folded 3686400 points of 4423680  Folded 3760128 points of 4423680  Folded 3833856 points of 4423680  Folded 3907584 points of 4423680  Folded 3981312 points of 4423680  Folded 4055040 points of 4423680  Folded 4128768 points of 4423680  Folded 4202496 points of 4423680  Folded 4276224 points of 4423680  Folded 4349952 points of 4423680  Folded 4423680 points of 4423680
+
+Optimizing...
+
+  Searching 129 DMs, 129 periods, and 129 p-dots...
+  Amount Complete =   0%  Done searching.
+
+Maximum reduced chi-squared found  =  11.19369
+Best DM     (pc cm^-3)  =  201.2132
+Best period        (s)  =   1.610114(78)
+Best p-dot       (s/s)  =  0.0(1.7)x10^-6
+Best p-dotdot  (s/s^2)  =  0.0(3.0)x10^-8
+
+Making plots.
+
+Effective number of DOF = 60.48
+Off-pulse Reduced chi^2 correction factor = 0.12
+Assuming this was folded with polycos...
+
+Done.
+

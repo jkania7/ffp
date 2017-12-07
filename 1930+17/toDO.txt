@@ -1,0 +1,2 @@
+THIS FILE IS REWRITTEN EVERYTIME process.py IS RUN
+This is a list of pfds that need to be flagged and 'echo show_pfd>>log.dat'ed 
