@@ -17,7 +17,7 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
                 if verbose: print("I have .fits {0}/{1}".format(dirPATH,file))
                 #looking for correspnding pfd
                 fitsNUM = "_".join((file.split('.')[0]).split('_')[-2:])
-                pfd =  glob.glob('{0}/*{1}.pfd'.format(dirPATH,pulsar, fitsNUM))#This is an array
+                pfd =  glob.glob('{0}/*{1}*{2}.pfd'.format(dirPATH, fitsNUM, pulsar))#This is an array
                 if (len(pfd)>1): #multiple pfd 
                     print("Something is wrong with the pfd matching, or you have more than one pfd,killing script")
                     exit()

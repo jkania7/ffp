@@ -1,0 +1,78 @@
+
+
+        Pulsar Raw-Data Folding Search Routine
+ Used for DM, Period, and P-dot tweaking of PSR candidates.
+                 by Scott M. Ransom
+
+Assuming the data are PSRFITS format...
+Reading PSRFITS data from 1 file:
+  '/gbo/AGBT17A_477/20170908/guppi_58004_1929+16_0002_0002.fits'
+
+    Number of files = 1
+       Num of polns = 2 (summed)
+  Center freq (MHz) = 820
+    Num of channels = 2048
+    Sample time (s) = 8.192e-05     
+     Spectra/subint = 4096
+   Total points (N) = 585728
+     Total time (s) = 47.98283776   
+     Clipping sigma = 6.000
+   Invert the band? = True
+          Byteswap? = False
+     Remove zeroDM? = False
+     Apply scaling? = False
+     Apply offsets? = False
+     Apply weights? = True
+
+File  Start Spec   Samples     Padding        Start MJD
+----  ----------  ----------  ----------  --------------------
+1              0      585728           0  58004.93195019362963
+
+Folding a PSR_1929+16 candidate.
+
+Output data file is '/gbo/AGBT17A_477/20170908/guppi_58004_1929+16_0002_0002_PSR_1929+16.pfd'.
+Output plot file is '/gbo/AGBT17A_477/20170908/guppi_58004_1929+16_0002_0002_PSR_1929+16.pfd.ps'.
+Best profile is in  '/gbo/AGBT17A_477/20170908/guppi_58004_1929+16_0002_0002_PSR_1929+16.pfd.bestprof'.
+Generating polycos for PSR 1929+16.
+Polycos used are in '/gbo/AGBT17A_477/20170908/guppi_58004_1929+16_0002_0002_PSR_1929+16.pfd.polycos'.
+
+Read 24 set(s) of polycos for PSR 1929+16 at 58004.931950193626 (DM = 12)
+
+Pulsar                       =  1929+16
+Folding (topo) epoch  (MJD)  =  58004.931950193626
+Data pt duration (dt)   (s)  =  8.192e-05
+Total number of data points  =  491520
+Number of profile bins       =  64
+Folding period          (s)  =  0.529713020576062
+Folding frequency      (hz)  =  1.88781464898
+
+WARNING:  The pulse period is close to the duration of a folding
+  sub-interval.  This may cause artifacts in the plot and/or excessive
+  loss of data during the fold.  I recommend re-running with -npart set
+  to a significantly smaller value than the current value of 60.
+True starting fraction       =  0
+Will search 129 DMs from 0.000 to 133.429 (ddm = 1.0343)
+
+Starting work on 'guppi_58004_1929+16_0002_0002.fits'...
+
+  Folded 0 points of 491520  Folded 8192 points of 491520  Folded 16384 points of 491520  Folded 24576 points of 491520  Folded 32768 points of 491520  Folded 40960 points of 491520  Folded 49152 points of 491520  Folded 57344 points of 491520  Folded 65536 points of 491520  Folded 73728 points of 491520  Folded 81920 points of 491520  Folded 90112 points of 491520  Folded 98304 points of 491520  Folded 106496 points of 491520  Folded 114688 points of 491520  Folded 122880 points of 491520  Folded 131072 points of 491520  Folded 139264 points of 491520  Folded 147456 points of 491520  Folded 155648 points of 491520  Folded 163840 points of 491520  Folded 172032 points of 491520  Folded 180224 points of 491520  Folded 188416 points of 491520  Folded 196608 points of 491520  Folded 204800 points of 491520  Folded 212992 points of 491520  Folded 221184 points of 491520  Folded 229376 points of 491520  Folded 237568 points of 491520  Folded 245760 points of 491520  Folded 253952 points of 491520  Folded 262144 points of 491520  Folded 270336 points of 491520  Folded 278528 points of 491520  Folded 286720 points of 491520  Folded 294912 points of 491520  Folded 303104 points of 491520  Folded 311296 points of 491520  Folded 319488 points of 491520  Folded 327680 points of 491520  Folded 335872 points of 491520  Folded 344064 points of 491520  Folded 352256 points of 491520  Folded 360448 points of 491520  Folded 368640 points of 491520  Folded 376832 points of 491520  Folded 385024 points of 491520  Folded 393216 points of 491520  Folded 401408 points of 491520  Folded 409600 points of 491520  Folded 417792 points of 491520  Folded 425984 points of 491520  Folded 434176 points of 491520  Folded 442368 points of 491520  Folded 450560 points of 491520  Folded 458752 points of 491520  Folded 466944 points of 491520  Folded 475136 points of 491520  Folded 483328 points of 491520  Folded 491520 points of 491520
+
+Optimizing...
+
+  Searching 129 DMs, 129 periods, and 129 p-dots...
+  Amount Complete =   0%  Done searching.
+
+Maximum reduced chi-squared found  =  1.57829
+Best DM     (pc cm^-3)  =  12.4120
+Best period        (s)  =   0.52971(13)
+Best p-dot       (s/s)  =  0.0(2.6)x10^-5
+Best p-dotdot  (s/s^2)  =  0.0(4.1)x10^-6
+
+Making plots.
+
+Effective number of DOF = 60.47
+Off-pulse Reduced chi^2 correction factor = 0.77
+Assuming this was folded with polycos...
+
+Done.
+

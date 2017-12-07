@@ -1,0 +1,36 @@
+
+
+        Pulsar Raw-Data Folding Search Routine
+ Used for DM, Period, and P-dot tweaking of PSR candidates.
+                 by Scott M. Ransom
+
+Assuming the data are PSRFITS format...
+Reading PSRFITS data from 1 file:
+  '/gbo/AGBT17A_477/20170909/guppi_58005_1929+16_0002_0001.fits'
+
+    Number of files = 1
+       Num of polns = 2 (summed)
+  Center freq (MHz) = 820
+    Num of channels = 2048
+    Sample time (s) = 8.192e-05     
+     Spectra/subint = 4096
+   Total points (N) = 5103616
+     Total time (s) = 418.08822272  
+     Clipping sigma = 6.000
+   Invert the band? = True
+          Byteswap? = False
+     Remove zeroDM? = False
+     Apply scaling? = False
+     Apply offsets? = False
+     Apply weights? = True
+
+File  Start Spec   Samples     Padding        Start MJD
+----  ----------  ----------  ----------  --------------------
+1              0     5103616           0  58005.92958333333333
+
+Folding a PSR_1929+16 candidate.
+
+Output data file is '/gbo/AGBT17A_477/20170909/guppi_58005_1929+16_0002_0001_PSR_1929+16.pfd'.
+Output plot file is '/gbo/AGBT17A_477/20170909/guppi_58005_1929+16_0002_0001_PSR_1929+16.pfd.ps'.
+Best profile is in  '/gbo/AGBT17A_477/20170909/guppi_58005_1929+16_0002_0001_PSR_1929+16.pfd.bestprof'.
+Generating polycos for PSR 1929+16.
