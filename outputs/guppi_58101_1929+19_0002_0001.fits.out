@@ -1,0 +1,73 @@
+
+
+        Pulsar Raw-Data Folding Search Routine
+ Used for DM, Period, and P-dot tweaking of PSR candidates.
+                 by Scott M. Ransom
+
+Assuming the data are PSRFITS format...
+Reading PSRFITS data from 1 file:
+  '/gbo/AGBT17A_477/20171214/guppi_58101_1929+19_0002_0001.fits'
+
+    Number of files = 1
+       Num of polns = 2 (summed)
+  Center freq (MHz) = 820
+    Num of channels = 2048
+    Sample time (s) = 8.192e-05     
+     Spectra/subint = 4096
+   Total points (N) = 5242880
+     Total time (s) = 429.4967296   
+     Clipping sigma = 6.000
+   Invert the band? = True
+          Byteswap? = False
+     Remove zeroDM? = False
+     Apply scaling? = False
+     Apply offsets? = False
+     Apply weights? = True
+
+File  Start Spec   Samples     Padding        Start MJD
+----  ----------  ----------  ----------  --------------------
+1              0     5242880           0  58101.93189814814815
+
+Folding a PSR_1929+19 candidate.
+
+Output data file is '/gbo/AGBT17A_477/20171214/guppi_58101_1929+19_0002_0001_PSR_1929+19.pfd'.
+Output plot file is '/gbo/AGBT17A_477/20171214/guppi_58101_1929+19_0002_0001_PSR_1929+19.pfd.ps'.
+Best profile is in  '/gbo/AGBT17A_477/20171214/guppi_58101_1929+19_0002_0001_PSR_1929+19.pfd.bestprof'.
+Generating polycos for PSR 1929+19.
+Polycos used are in '/gbo/AGBT17A_477/20171214/guppi_58101_1929+19_0002_0001_PSR_1929+19.pfd.polycos'.
+
+Read 24 set(s) of polycos for PSR 1929+19 at 58101.931898148148 (DM = 527)
+
+Pulsar                       =  1929+19
+Folding (topo) epoch  (MJD)  =  58101.931898148148
+Data pt duration (dt)   (s)  =  8.192e-05
+Total number of data points  =  5160960
+Number of profile bins       =  64
+Folding period          (s)  =  0.339230954832469
+Folding frequency      (hz)  =  2.94784419215
+True starting fraction       =  0
+Will search 129 DMs from 484.607 to 570.056 (ddm = 0.6624)
+
+Starting work on 'guppi_58101_1929+19_0002_0001.fits'...
+
+  Folded 0 points of 5160960  Folded 86016 points of 5160960  Folded 172032 points of 5160960  Folded 258048 points of 5160960  Folded 344064 points of 5160960  Folded 430080 points of 5160960  Folded 516096 points of 5160960  Folded 602112 points of 5160960  Folded 688128 points of 5160960  Folded 774144 points of 5160960  Folded 860160 points of 5160960  Folded 946176 points of 5160960  Folded 1032192 points of 5160960  Folded 1118208 points of 5160960  Folded 1204224 points of 5160960  Folded 1290240 points of 5160960  Folded 1376256 points of 5160960  Folded 1462272 points of 5160960  Folded 1548288 points of 5160960  Folded 1634304 points of 5160960  Folded 1720320 points of 5160960  Folded 1806336 points of 5160960  Folded 1892352 points of 5160960  Folded 1978368 points of 5160960  Folded 2064384 points of 5160960  Folded 2150400 points of 5160960  Folded 2236416 points of 5160960  Folded 2322432 points of 5160960  Folded 2408448 points of 5160960  Folded 2494464 points of 5160960  Folded 2580480 points of 5160960  Folded 2666496 points of 5160960  Folded 2752512 points of 5160960  Folded 2838528 points of 5160960  Folded 2924544 points of 5160960  Folded 3010560 points of 5160960  Folded 3096576 points of 5160960  Folded 3182592 points of 5160960  Folded 3268608 points of 5160960  Folded 3354624 points of 5160960  Folded 3440640 points of 5160960  Folded 3526656 points of 5160960  Folded 3612672 points of 5160960  Folded 3698688 points of 5160960  Folded 3784704 points of 5160960  Folded 3870720 points of 5160960  Folded 3956736 points of 5160960  Folded 4042752 points of 5160960  Folded 4128768 points of 5160960  Folded 4214784 points of 5160960  Folded 4300800 points of 5160960  Folded 4386816 points of 5160960  Folded 4472832 points of 5160960  Folded 4558848 points of 5160960  Folded 4644864 points of 5160960  Folded 4730880 points of 5160960  Folded 4816896 points of 5160960  Folded 4902912 points of 5160960  Folded 4988928 points of 5160960  Folded 5074944 points of 5160960  Folded 5160960 points of 5160960
+
+Optimizing...
+
+  Searching 129 DMs, 129 periods, and 129 p-dots...
+  Amount Complete =   0%  Done searching.
+
+Maximum reduced chi-squared found  =  1.51544
+Best DM     (pc cm^-3)  =  527.0000
+Best period        (s)  =   0.3392310(76)
+Best p-dot       (s/s)  =  0.0(1.4)x10^-7
+Best p-dotdot  (s/s^2)  =  0.0(2.1)x10^-9
+
+Making plots.
+
+Effective number of DOF = 60.46
+Off-pulse Reduced chi^2 correction factor = 0.83
+Assuming this was folded with polycos...
+
+Done.
+

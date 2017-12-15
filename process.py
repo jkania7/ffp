@@ -11,6 +11,7 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
     if verbose: print("\ndirPATH = {0}".format(dirPATH))
     if vverbose: print("dirNAMEs = {0}".format(dirNAMEs))
     if vverbose: print("fileNAMEs = {0}\n".format(fileNAMEs))
+    print(fileNAMEs)
     for pulsar in pulsarS:
         for file in fileNAMEs:#looks for fits files
             if fnmatch.fnmatch(file, '*{0}*.fits'.format(pulsar)):
@@ -28,10 +29,11 @@ for (dirPATH, dirNAMEs, fileNAMEs) in os.walk('/gbo/AGBT17A_477/'):#dirPATH is p
                     f = open("/gbo/AGBT17A_477/share/outputs/{0}.out".format(file),'a')#A file outputs of the runs
                     call(["echo", "prepfold","-timing","/gbo/AGBT17A_477/share/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"])
                     call([ "prepfold","-timing","/gbo/AGBT17A_477/share/{0}.par".format(pulsar),"{0}/{1}".format(dirPATH,file),"-noxwin"],stdout=f)
-                pfd =  glob.glob('{0}/*{1}.pfd'.format(dirPATH,pulsar, fitsNUM))
-                if (len(pfd) == 0): print("Didn't create pfd, killing script"); exit()
-                call(["echo","rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)]) 
-                call(["rsync","-at","{0}".format(pfd[0]),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)])  
+                pfds =  glob.glob('{0}/*{1}.pfd'.format(dirPATH,pulsar, fitsNUM))
+                if (len(pfds) == 0): print("Didn't create pfd, killing script"); exit()
+                for pfd in pfds:
+                    call(["echo","rsync","-at","{0}".format(pfd),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)]) 
+                    call(["rsync","-at","{0}".format(pfd),"/gbo/AGBT17A_477/share/{0}/".format(pulsar)])  
 
 for pulsar in pulsarS:
     with open("/gbo/AGBT17A_477/share/{0}/toDO.txt".format(pulsar),'w') as toDO:
